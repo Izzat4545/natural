@@ -1,15 +1,22 @@
+"use client";
 import Image from "next/image";
 import Logo from "../assets/icons/logo.svg";
 import Phone from "../assets/icons/phone.svg";
 import Menu from "../assets/icons/menu.svg";
 import Link from "next/link";
+import Sidebar from "./sidebar";
+import { useState } from "react";
 const Header = () => {
+  const [open, setOpen] = useState<boolean>(false);
+  function close() {
+    setOpen(false);
+  }
   return (
     <div className="container m-auto">
       {/* LINKS */}
       <ul className="text-green flex justify-between items-center gap-2">
         <li>
-          <Link href="#">
+          <Link href="/">
             <Image alt="Logo" src={Logo} />
           </Link>
         </li>
@@ -34,11 +41,11 @@ const Header = () => {
           </Link>
         </li>
         <li className="hidden lg:block">
-          <button className="uppercase text-nowrap text-green hover:text-white hover:bg-green">
+          <button className="uppercase border btn btn-ghost border-green p-3 rounded-full text-nowrap text-green hover:text-white hover:bg-green">
             Оставить заявку
           </button>
         </li>
-        {/* LANG */}
+        {/* LANGUAGE */}
         <li className="hidden lg:block">
           <div className="flex items-center gap-2">
             <div className="dropdown">
@@ -51,7 +58,7 @@ const Header = () => {
               </div>
               <ul
                 tabIndex={0}
-                className="dropdown-content z-[1] menu p-1 shadow bg-base-100 rounded-box"
+                className="dropdown-content z-[1] menu p-0 shadow bg-base-100 rounded-box"
               >
                 <li>
                   <a>UZ</a>
@@ -64,10 +71,15 @@ const Header = () => {
             </div>
           </div>
         </li>
-        <li className="block cursor-pointer lg:hidden">
+        {/* MENU */}
+        <li
+          onClick={() => setOpen(!open)}
+          className="block cursor-pointer lg:hidden"
+        >
           <Image alt="Logo" src={Menu} />
         </li>
       </ul>
+      <Sidebar close={close} isOpen={open} />
     </div>
   );
 };
