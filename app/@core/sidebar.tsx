@@ -15,7 +15,7 @@ const Sidebar = ({ isOpen, close }: { isOpen: boolean; close: () => void }) => {
       initial={{ x: "-100%" }}
       animate={{ x: isOpen ? 0 : "-100%" }}
       transition={{ type: "spring", stiffness: 200, damping: 25 }}
-      className="absolute shadow-lg bg-base-100 w-full sm:w-[50%] top-0 bottom-0 left-0"
+      className="absolute shadow-lg bg-base-100 w-full sm:w-[50%] top-0 z-50 bottom-0 left-0"
     >
       <div
         className="cursor-pointer flex justify-end mr-2 mt-5"
