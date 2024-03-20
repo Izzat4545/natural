@@ -5,12 +5,17 @@ import Phone from "../assets/icons/phone.svg";
 import Menu from "../assets/icons/menu.svg";
 import Link from "next/link";
 import Sidebar from "./sidebar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 const Header = () => {
   const [open, setOpen] = useState<boolean>(false);
   function close() {
     setOpen(false);
   }
+  const path = usePathname();
+  useEffect(() => {
+    close();
+  }, [path]);
   return (
     <div className="container m-auto">
       {/* LINKS */}

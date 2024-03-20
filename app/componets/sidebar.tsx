@@ -5,6 +5,10 @@ import CloseIcon from "../assets/icons/menu_arrow.svg";
 import Search from "../assets/icons/search.svg";
 import Phone from "../assets/icons/phone.svg";
 import Link from "next/link";
+import Telegram from "../assets/icons/telegram.svg";
+import LinkedIn from "../assets/icons/linkedin.svg";
+import Instogram from "../assets/icons/instogram.svg";
+import Facebook from "../assets/icons/facebook.svg";
 const Sidebar = ({ isOpen, close }: { isOpen: boolean; close: () => void }) => {
   return (
     <motion.div
@@ -66,6 +70,28 @@ const Sidebar = ({ isOpen, close }: { isOpen: boolean; close: () => void }) => {
           <button className="uppercase border btn btn-ghost border-green p-3 rounded-full text-nowrap text-green hover:text-white hover:bg-green">
             Оставить заявку
           </button>
+        </li>
+        <li className="flex items-center justify-between gap-5">
+          <Image
+            className="cursor-pointer filter-green"
+            alt="Telegram"
+            src={Telegram}
+          />
+          <Image
+            className="cursor-pointer filter-green"
+            alt="Linkedin"
+            src={LinkedIn}
+          />
+          <Image
+            className="cursor-pointer filter-green"
+            alt="Inkstogram"
+            src={Instogram}
+          />
+          <Image
+            className="cursor-pointer filter-green"
+            alt="Facebook"
+            src={Facebook}
+          />
         </li>
       </ul>
     </motion.div>
