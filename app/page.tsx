@@ -68,7 +68,7 @@ export default function Home() {
       <div></div>
       {/* MUSTAFA */}
       <div className="flex md:flex-row flex-col justify-around gap-4 mb-4 items-center container m-auto">
-        <div className="border border-dashed border-[#0000007a] rounded-full p-4">
+        <div className="border border-[#0000007a] rounded-full p-4">
           <Image
             className="rounded-full border border-dashed border-[#0000007a] p-3"
             alt="Mustafa"
