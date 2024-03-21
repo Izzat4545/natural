@@ -17,12 +17,16 @@ const Header = () => {
     close();
   }, [path]);
   return (
-    <div className="container m-auto">
+    <div className="container m-auto z-10">
       {/* LINKS */}
       <ul className="text-green flex justify-between items-center gap-2">
         <li>
           <Link href="/">
-            <Image alt="Logo" src={Logo} />
+            <Image
+              className="w-[130px] sm:w-[170px] md:w-full"
+              alt="Logo"
+              src={Logo}
+            />
           </Link>
         </li>
         <li className="hidden lg:block">
@@ -81,7 +85,11 @@ const Header = () => {
           onClick={() => setOpen(!open)}
           className="block cursor-pointer lg:hidden"
         >
-          <Image alt="Logo" src={Menu} />
+          <Image
+            className="w-[30px] sm:w-[50x] md:w-[60px]"
+            alt="Logo"
+            src={Menu}
+          />
         </li>
       </ul>
       <Sidebar close={close} isOpen={open} />
