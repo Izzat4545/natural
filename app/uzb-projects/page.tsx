@@ -4,7 +4,7 @@ import { uzb_projects } from "./resources/data";
 import Card from "../shared/card";
 import Link from "next/link";
 import generateSlug from "../utils/slugGenerator";
-const Projects = () => {
+const UzbProjects = () => {
   return (
     <>
       <div className="relative">
@@ -21,7 +21,7 @@ const Projects = () => {
         </div>
       </div>
       <div className="py-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 container m-auto">
           {uzb_projects.slice(0, 9).map((value, index) => (
             <Link
               className="max-w-[400px] m-auto"
@@ -43,7 +43,7 @@ const Projects = () => {
         <div className="text-green my-10 text-[25px] md:text-[35px] text-center">
           Наши проекты в процессе
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 container m-auto gap-10">
           {uzb_projects.slice(9, 12).map((value, index) => (
             <Link
               key={index}
@@ -66,4 +66,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default UzbProjects;
