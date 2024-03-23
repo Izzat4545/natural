@@ -9,13 +9,46 @@ import Telegram from "../assets/icons/telegram.svg";
 import LinkedIn from "../assets/icons/linkedin.svg";
 import Instogram from "../assets/icons/instogram.svg";
 import Facebook from "../assets/icons/facebook.svg";
-const Sidebar = ({ isOpen, close }: { isOpen: boolean; close: () => void }) => {
+import { Dispatch, SetStateAction, useEffect, useRef } from "react";
+const Sidebar = ({
+  isOpen,
+  close,
+  setOpenModal,
+}: {
+  isOpen: boolean;
+  close: () => void;
+  setOpenModal: Dispatch<SetStateAction<boolean>>;
+}) => {
+  function openModal() {
+    close();
+    setOpenModal(true);
+  }
+  const sidebarRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (
+        isOpen &&
+        sidebarRef.current &&
+        !sidebarRef.current.contains(event.target as Node)
+      ) {
+        close();
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, [isOpen, close]);
   return (
     <motion.div
       initial={{ x: "-100%" }}
       animate={{ x: isOpen ? 0 : "-100%" }}
       transition={{ type: "spring", stiffness: 200, damping: 25 }}
       className="absolute shadow-lg bg-base-100 w-full sm:w-[50%] top-0 z-50 bottom-0 left-0"
+      ref={sidebarRef}
     >
       <div
         className="cursor-pointer flex justify-end mr-2 mt-5"
@@ -67,7 +100,10 @@ const Sidebar = ({ isOpen, close }: { isOpen: boolean; close: () => void }) => {
           <Image alt="Logo" src={Phone} />
         </li>
         <li>
-          <button className="uppercase border btn btn-ghost border-green p-3 rounded-full text-nowrap text-green hover:text-white hover:bg-green">
+          <button
+            onClick={() => openModal()}
+            className="uppercase border btn btn-ghost border-green p-3 rounded-full text-nowrap text-green hover:text-white hover:bg-green"
+          >
             Оставить заявку
           </button>
         </li>

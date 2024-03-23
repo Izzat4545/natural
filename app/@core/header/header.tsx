@@ -1,20 +1,25 @@
 "use client";
 import Image from "next/image";
-import Logo from "../assets/icons/logo.svg";
-import Phone from "../assets/icons/phone.svg";
-import Menu from "../assets/icons/menu.svg";
+import Logo from "../../assets/icons/logo.svg";
+import Phone from "../../assets/icons/phone.svg";
+import Menu from "../../assets/icons/menu.svg";
 import Link from "next/link";
-import Sidebar from "./sidebar";
+import Sidebar from "../sidebar";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import HeaderModal from "./components/HeaderModal";
 const Header = () => {
-  const [open, setOpen] = useState<boolean>(false);
-  function close() {
-    setOpen(false);
+  const [openSidebar, setOpenSidebar] = useState<boolean>(false);
+  const [openModal, setOpenModal] = useState<boolean>(false);
+  function closeSidebar() {
+    setOpenSidebar(false);
+  }
+  function closeModal() {
+    setOpenModal(false);
   }
   const path = usePathname();
   useEffect(() => {
-    close();
+    closeSidebar();
   }, [path]);
   return (
     <div className="container m-auto z-10">
@@ -50,7 +55,10 @@ const Header = () => {
           </Link>
         </li>
         <li className="hidden lg:block">
-          <button className="uppercase border btn btn-ghost border-green p-3 rounded-full text-nowrap text-green hover:text-white hover:bg-green">
+          <button
+            onClick={() => setOpenModal(true)}
+            className="uppercase border btn btn-ghost border-green p-3 rounded-full text-nowrap text-green hover:text-white hover:bg-green"
+          >
             Оставить заявку
           </button>
         </li>
@@ -82,7 +90,7 @@ const Header = () => {
         </li>
         {/* MENU */}
         <li
-          onClick={() => setOpen(!open)}
+          onClick={() => setOpenSidebar(!openSidebar)}
           className="block cursor-pointer lg:hidden"
         >
           <Image
@@ -92,7 +100,12 @@ const Header = () => {
           />
         </li>
       </ul>
-      <Sidebar close={close} isOpen={open} />
+      <Sidebar
+        close={closeSidebar}
+        isOpen={openSidebar}
+        setOpenModal={setOpenModal}
+      />
+      <HeaderModal isOpen={openModal} onClose={closeModal} />
     </div>
   );
 };

@@ -12,6 +12,7 @@ import Partner3 from "../../assets/images/partner_3.png";
 import Partner4 from "../../assets/images/partner_4.png";
 import { EmblaOptionsType } from "embla-carousel";
 import EmblaCarousel from "./components/EmblaCarousel";
+import { usePathname } from "next/navigation";
 import "./components/styles/embla.css";
 const Footer = () => {
   const OPTIONS: EmblaOptionsType = {
@@ -19,6 +20,8 @@ const Footer = () => {
     dragFree: true,
     loop: true,
   };
+  const pathname = usePathname();
+
   const SLIDES = [
     {
       id: 1,
@@ -45,7 +48,9 @@ const Footer = () => {
     <div className="bg-green text-white py-4">
       <div className="container m-auto">
         <div className="flex justify-center">
-          <EmblaCarousel slides={SLIDES} options={OPTIONS} />
+          {pathname === "/" && (
+            <EmblaCarousel slides={SLIDES} options={OPTIONS} />
+          )}
         </div>
         <div className="flex flex-col lg:flex-row items-center gap-3 justify-between">
           <Image src={FooterLogo} alt="Logo" />
