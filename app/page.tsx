@@ -1,12 +1,17 @@
 import Image from "next/image";
 import HeroBg from "./assets/images/main_page_bg.png";
 import Year from "./assets/images/28_years.png";
+import CloudBg from "./assets/images/main_bg_2.png";
 import Animations from "./shared/animations";
 import Mustafa from "./assets/images/mustafa.png";
 import Tahsken from "./assets/images/uzb_proj.png";
 import Abroad from "./assets/images/abroad_proj.png";
 import Link from "next/link";
 import Card from "./shared/card";
+import Compas from "./components/compas";
+import Cloud from "./components/cloud";
+import Chess from "./components/chess";
+import AnimatedSlide from "./components/animatedSlider";
 export default function Home() {
   return (
     <div>
@@ -64,8 +69,7 @@ export default function Home() {
           <Image alt="year" src={Year} />
         </div>
       </div>
-      {/* ANIMATION */}
-      <div></div>
+      <AnimatedSlide />
       {/* MUSTAFA */}
       <div className="flex md:flex-row flex-col justify-around gap-4 mb-4 items-center container m-auto">
         <div className="border border-[#0000007a] rounded-full p-4">

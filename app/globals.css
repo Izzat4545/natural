@@ -2,7 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+.filter-green {
+  filter: invert(30%) sepia(21%) saturate(1909%) hue-rotate(44deg)
+    brightness(81%) contrast(102%);
+}
 
-.filter-green{
-    filter: invert(30%) sepia(21%) saturate(1909%) hue-rotate(44deg) brightness(81%) contrast(102%);
+.cloud_image_holder {
+  background: url("./assets/icons/curved_circle.svg") no-repeat center center;
+  background-size: contain;
+  min-height: 100px;
+  height: auto;
+  width: 100%;
 }
