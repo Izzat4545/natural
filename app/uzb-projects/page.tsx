@@ -4,6 +4,7 @@ import { uzb_projects } from "./resources/data";
 import Card from "../shared/card";
 import Link from "next/link";
 import generateSlug from "../utils/slugGenerator";
+import { ContentAnimations } from "../shared/animations";
 const UzbProjects = () => {
   return (
     <>
@@ -12,11 +13,11 @@ const UzbProjects = () => {
         <div className="bg-[#00000081] absolute top-0 left-0 right-0 w-full h-full"></div>
         <div className="right-0 left-0 m-auto absolute top-[30%] text-white flex flex-col items-center">
           <div className="flex flex-col">
-            {/* <Animations delay={0.6}> */}
-            <p className="text-[40px] sm:text-[50px] md:text-[60px] text-center 2xl:text-[70px]">
-              Наши проекты в Узбекистане
-            </p>
-            {/* </Animations> */}
+            <ContentAnimations delay={0.5}>
+              <p className="text-[40px] sm:text-[50px] md:text-[60px] text-center 2xl:text-[70px]">
+                Наши проекты в Узбекистане
+              </p>
+            </ContentAnimations>
           </div>
         </div>
       </div>

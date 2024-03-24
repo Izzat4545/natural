@@ -2,7 +2,7 @@ import Image from "next/image";
 import HeroBg from "./assets/images/main_page_bg.png";
 import Year from "./assets/images/28_years.png";
 import CloudBg from "./assets/images/main_bg_2.png";
-import Animations from "./shared/animations";
+import Animations, { ContentAnimations } from "./shared/animations";
 import Mustafa from "./assets/images/mustafa.png";
 import Tahsken from "./assets/images/uzb_proj.png";
 import Abroad from "./assets/images/abroad_proj.png";
@@ -18,24 +18,24 @@ export default function Home() {
         <div className="bg-[#00000081] absolute top-0 left-0 right-0 w-full h-full"></div>
         <div className="right-0 left-0 m-auto absolute top-[30%] text-white flex flex-col items-center">
           <div className="flex flex-col">
-            {/* <Animations delay={0.5}> */}
-            <p className="text-end text-[12px] sm:text-[16px] 2xl:text-[18px]">
-              Измените <b>ландшафтный дизайн</b> вокруг себя - <br />
-              подчеркните индивидуальность
-            </p>
-            {/* </Animations> */}
-            {/* <Animations delay={0.6}> */}
-            <p className="text-[40px] sm:text-[70px] md:text-[100px] text-nowrap text-center 2xl:text-[150px]">
-              Natural Peyzaj
-            </p>
-            {/* </Animations> */}
-            {/* <Animations delay={0.7}> */}
-            <div>
-              <button className="flex text-[12px] sm:text-[18px] rounded-full justify-start btn btn-ghost bg-transparent border border-white hover:bg-white hover:text-green">
-                Katalog
-              </button>
-            </div>
-            {/* </Animations> */}
+            <ContentAnimations delay={0.5}>
+              <p className="text-end text-[12px] sm:text-[16px] 2xl:text-[18px]">
+                Измените <b>ландшафтный дизайн</b> вокруг себя - <br />
+                подчеркните индивидуальность
+              </p>
+            </ContentAnimations>
+            <ContentAnimations delay={0.6}>
+              <p className="text-[40px] sm:text-[70px] md:text-[100px] text-nowrap text-center 2xl:text-[150px]">
+                Natural Peyzaj
+              </p>
+            </ContentAnimations>
+            <ContentAnimations delay={0.7}>
+              <div>
+                <button className="flex text-[12px] sm:text-[18px] rounded-full justify-start btn btn-ghost bg-transparent border border-white hover:bg-white hover:text-green">
+                  Katalog
+                </button>
+              </div>
+            </ContentAnimations>
           </div>
         </div>
       </div>

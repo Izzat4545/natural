@@ -9,6 +9,7 @@ import Certificate3 from "../assets/images/certificate3.jpg";
 import Certificate4 from "../assets/images/certificate4.jpg";
 import Certificate5 from "../assets/images/certificate5.jpg";
 import Certificate6 from "../assets/images/certificate6.jpg";
+import { ContentAnimations } from "../shared/animations";
 const AboutUs = () => {
   const certificates = [
     Certificate1,
@@ -25,11 +26,11 @@ const AboutUs = () => {
         <div className="bg-[#00000081] absolute top-0 left-0 right-0 w-full h-full"></div>
         <div className="right-0 left-0 m-auto absolute top-[30%] text-white flex flex-col items-center">
           <div className="flex flex-col">
-            {/* <Animations delay={0.6}> */}
-            <p className="text-[40px] sm:text-[50px] md:text-[60px] text-center 2xl:text-[70px]">
-              О Нашей Компании
-            </p>
-            {/* </Animations> */}
+            <ContentAnimations delay={0.5}>
+              <p className="text-[40px] sm:text-[50px] md:text-[60px] text-center 2xl:text-[70px]">
+                О Нашей Компании
+              </p>
+            </ContentAnimations>
           </div>
         </div>
       </div>
