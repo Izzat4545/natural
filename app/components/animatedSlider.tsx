@@ -1,6 +1,4 @@
 "use client";
-import Image from "next/image";
-import CloudBg from "../assets/images/main_bg_2.png";
 import Cloud from "./cloud";
 import Compas from "./compas";
 import Chess from "./chess";
@@ -9,6 +7,7 @@ import {
   NextButton,
   PrevButton,
 } from "../@core/footer/components/EmblaCarouselArrowButtons";
+import SlideAnimations from "../shared/animations";
 
 const AnimatedSlide = () => {
   const [carouselItems, setCarouselItems] = useState([
@@ -40,45 +39,120 @@ const AnimatedSlide = () => {
   }
 
   return (
-    <div className="relative">
-      <Image
-        className="object-cover w-full h-screen sm:h-[70vh]"
-        alt="bg"
-        src={CloudBg}
-      />
-      <div className="bg-[#00000081] absolute top-0 left-0 right-0 w-full h-full"></div>
-      <div className="right-0 left-0 m-auto absolute top-2 sm:top-[10%] text-white flex flex-col items-center">
-        <div className="flex sm:flex-row flex-col justify-center items-center">
-          <div className="dashed_border p-5 flex justify-center overflow-hidden carousel-item-container">
-            {carouselItems[0] === "compas" && <Compas active={false} />}
-            {carouselItems[0] === "cloud" && <Cloud active={false} />}
-            {carouselItems[0] === "chess" && <Chess active={false} />}
+    <div className="animated_slider py-10">
+      <div className="text-white flex flex-col items-center">
+        <div className="flex sm:flex-row flex-col max-sm:gap-3 justify-center items-center">
+          <div className="dashed_border  p-16 flex justify-center overflow-hidden carousel-item-container">
+            {carouselItems[0] === "compas" && (
+              <SlideAnimations>
+                <Compas active={false} />
+              </SlideAnimations>
+            )}
+            {carouselItems[0] === "cloud" && (
+              <SlideAnimations>
+                <Cloud active={false} />
+              </SlideAnimations>
+            )}
+            {carouselItems[0] === "chess" && (
+              <SlideAnimations>
+                <Chess active={false} />
+              </SlideAnimations>
+            )}
           </div>
-          <div className="cloud_image_holder p-5">
-            <div className="dashed_border  flex justify-center carousel-item-container m-auto">
-              <div className="ml-[-50px] sm:ml-[-45px]">
-                <PrevButton onClick={moveMiddleToFirst} />
-              </div>
-              {carouselItems[1] === "compas" && <Compas active={true} />}
-              {carouselItems[1] === "cloud" && <Cloud active={true} />}
-              {carouselItems[1] === "chess" && <Chess active={true} />}
-              <div className="mr-[-50px] sm:mr-[-45px]">
-                <NextButton onClick={moveMiddleToLast} />
-              </div>
+          <div className="cloud_image_holder flex justify-center items-center p-5">
+            <div className="mr-[20px] mt-1 sm:mr-[5px] md:mr-[-20px] lg:mr-[-50px]">
+              <PrevButton onClick={moveMiddleToFirst} />
+            </div>
+            <div className="activeElement flex justify-center carousel-item-container m-auto">
+              {carouselItems[1] === "compas" && (
+                <div className="rounded-full">
+                  <SlideAnimations>
+                    <Compas active={true} />
+                  </SlideAnimations>
+                </div>
+              )}
+              {carouselItems[1] === "cloud" && (
+                <SlideAnimations>
+                  <Cloud active={true} />
+                </SlideAnimations>
+              )}
+              {carouselItems[1] === "chess" && (
+                <SlideAnimations>
+                  <Chess active={true} />
+                </SlideAnimations>
+              )}
+            </div>
+            <div className="ml-[20px] mt-1 sm:ml-[5px] md:ml-[-20px] lg:ml-[-50px]">
+              <NextButton onClick={moveMiddleToLast} />
             </div>
           </div>
-          <div className="dashed_border p-5 flex justify-center overflow-hidden carousel-item-container">
-            {carouselItems[2] === "compas" && <Compas active={false} />}
-            {carouselItems[2] === "cloud" && <Cloud active={false} />}
-            {carouselItems[2] === "chess" && <Chess active={false} />}
+          <div className="dashed_border p-16 flex justify-center overflow-hidden carousel-item-container">
+            {carouselItems[2] === "compas" && (
+              <SlideAnimations>
+                <Compas active={false} />
+              </SlideAnimations>
+            )}
+            {carouselItems[2] === "cloud" && (
+              <SlideAnimations>
+                <Cloud active={false} />
+              </SlideAnimations>
+            )}
+            {carouselItems[2] === "chess" && (
+              <SlideAnimations>
+                <Chess active={false} />
+              </SlideAnimations>
+            )}
           </div>
         </div>
       </div>
-      <div>
-        {/* INFO WILL BE HERE */}
-        {/* {carouselItems[2] === "compas" && <Compas active={false} />}
-            {carouselItems[2] === "cloud" && <Cloud active={false} />}
-            {carouselItems[2] === "chess" && <Chess active={false} />} */}
+      <div className="flex justify-center flex-col mt-3 items-center text-white">
+        {carouselItems[1] === "compas" && (
+          <SlideAnimations>
+            <div className="text-center text-[25px]">
+              Ландшафтное проектирование:
+            </div>
+            <div>
+              <p>-Дендроплан</p>
+              <p>-Подробная схема посадки</p>
+              <p>-Разработка цветников</p>
+              <p>-Разработка цветников</p>
+              <p>-Ассортиментная ведомость всех растений</p>
+            </div>
+          </SlideAnimations>
+        )}
+        {carouselItems[1] === "cloud" && (
+          <SlideAnimations>
+            <div className="text-center text-[25px]">Озеленение:</div>
+            <div className="flex justify-center gap-10">
+              <div className="">
+                <p>-Разработка растительного грунта</p>
+                <p>-Система полива</p>
+                <p>-Система грунтового дренажа</p>
+                <p>-Система кровельного дренажа</p>
+                <p>-Посадка деревьев</p>
+              </div>
+              <div>
+                <p>-Посадка кустарников</p>
+                <p>-Установка рулонного газона</p>
+                <p>-Установка Гидропосева</p>
+                <p>-Укладка декоративного камня</p>
+                <p>-Установка разделителей</p>
+              </div>
+            </div>
+          </SlideAnimations>
+        )}
+        {carouselItems[1] === "chess" && (
+          <SlideAnimations>
+            <div className="text-center text-[25px]">Мошение:</div>
+            <div>
+              <p>-Подготовка основания для бетонных работ (ГПС+Щебень)</p>
+              <p>-Работа по подготовочным бетонам</p>
+              <p>-Укладка бетонных или каменных бордюров</p>
+              <p>-Укладка бетонной или каменной брусчатки</p>
+              <p>-Установка бетона с декоративной поверхности</p>
+            </div>
+          </SlideAnimations>
+        )}
       </div>
     </div>
   );

@@ -1,9 +1,9 @@
 "use client";
 import React, { useRef } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useInView } from "framer-motion";
 
-const Animations = React.memo(
+export const ContentAnimations = React.memo(
   ({ children, delay }: { children: any; delay: number }) => {
     // Use the useInView hook to detect when the element is in view
     const ref = useRef(null);
@@ -37,4 +37,28 @@ const Animations = React.memo(
   }
 );
 
-export default Animations;
+// ANIMATED SLIDE ANIMATIONS
+
+const SlideAnimations = ({ children }: { children: any }) => {
+  const carouselItemVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+    exit: { opacity: 0 },
+  };
+  return (
+    <AnimatePresence>
+      <motion.div
+        variants={carouselItemVariants}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        transition={{ duration: 0.5 }}
+        // className={style}
+      >
+        {children}
+      </motion.div>
+    </AnimatePresence>
+  );
+};
+
+export default SlideAnimations;

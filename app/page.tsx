@@ -8,9 +8,6 @@ import Tahsken from "./assets/images/uzb_proj.png";
 import Abroad from "./assets/images/abroad_proj.png";
 import Link from "next/link";
 import Card from "./shared/card";
-import Compas from "./components/compas";
-import Cloud from "./components/cloud";
-import Chess from "./components/chess";
 import AnimatedSlide from "./components/animatedSlider";
 export default function Home() {
   return (

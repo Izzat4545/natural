@@ -23,6 +23,23 @@
   width: 100%;
 }
 
+.animated_slider {
+  background: url("./assets/images/main_bg_2.png") no-repeat center center;
+  background-size: cover; /* Adjusted to cover the div completely */
+  height: auto; /* Ensure this is sufficient for your content */
+  width: 100%;
+}
+
+.activeElement {
+  background: url("./assets/icons/dashed_border.svg"),
+    url("./assets/icons/radial_bg.svg");
+  background-size: cover, cover; /* Adjust the size of each background image */
+  background-position: center center, center center; /* Position each background image */
+  background-repeat: no-repeat, no-repeat;
+  height: auto;
+  width: 100%;
+}
+
 .carousel-item-container {
   @apply w-[150px] h-[150px] md:w-[200px] md:h-[200px] lg:w-64 lg:h-64 flex justify-center items-center;
 }
