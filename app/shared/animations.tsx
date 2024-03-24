@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 export const ContentAnimations = React.memo(
@@ -29,7 +29,7 @@ export const ContentAnimations = React.memo(
     );
   }
 );
-
+ContentAnimations.displayName = "ContentAnimations";
 // ANIMATED SLIDE ANIMATIONS
 
 const SlideAnimations = ({ children }: { children: any }) => {
@@ -53,5 +53,7 @@ const SlideAnimations = ({ children }: { children: any }) => {
     </AnimatePresence>
   );
 };
+
+SlideAnimations.displayName = "SlideAnimations";
 
 export default SlideAnimations;
